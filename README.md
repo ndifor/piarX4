@@ -12,16 +12,15 @@ Server Requirements
 PHP version 5.5 or newer is recommended but PHP 7.x is not fully supported yet.
 
 =======
-1. PiarX4 **version string with git commit hash** (see ospos footer)
->>>>>>> dd3bc8004d764156cf7b3eebd460743200975c6f
-2. OS name and version running your Web Server (e.g. Linux Ubuntu 15.0)
-3. Web Server name and version (e.g. Apache 2.4)
-4. Database name and version (e.g. =< MySQL 5.6)
-5. PHP version (e.g. PHP 5.5)
-6. Language selected in PiarX4 (e.g. English, Spanish)
-7. Any configuration of PiarX4 that you changed
-8. Exact steps to reproduce the issue (test case)
-9. Optionally some screenshots to illustrate each step
+
+1. OS name and version running your Web Server (e.g. Linux Ubuntu 15.0)
+2. Web Server name and version (e.g. Apache 2.4)
+3. Database name and version (e.g. =< MySQL 5.6)
+4. PHP version (e.g. PHP 5.5)
+5. Language selected in PiarX4 (e.g. English, Spanish)
+6. Any configuration of PiarX4 that you changed
+7. Exact steps to reproduce the issue (test case)
+8. Optionally some screenshots to illustrate each step
 
 If above information is not provided in full, your issue will be tagged as pending.
 If missing information is not provided within a week we will close your issue.
