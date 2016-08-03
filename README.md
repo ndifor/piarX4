@@ -1,11 +1,26 @@
 Introduction
 ------------
 
-Open Source Point of Sale is a web based point of sale system written in the PHP language.
+PiarX4 is a web based point of sale system written in the PHP language.
 It uses MySQL as the data storage back-end and has a simple user interface.
 
 This is the latest version 3.0.0 and it's based on Bootstrap 3 using Bootswatch theme Flatly as default, and CodeIgniter 3.0.6.
 
+<<<<<<< HEAD
+=======
+Badges
+------
+[![Build Status](https://travis-ci.org/jekkos/opensourcepos.svg?branch=master)](https://travis-ci.org/jekkos/opensourcepos)
+[![Join the chat at https://gitter.im/jekkos/opensourcepos](https://badges.gitter.im/jekkos/opensourcepos.svg)](https://gitter.im/jekkos/opensourcepos?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![devDependency Status](https://david-dm.org/jekkos/opensourcepos/dev-status.svg)](https://david-dm.org/jekkos/opensourcepos#info=devDependencie)
+[![Dependency Status](https://gemnasium.com/badges/github.com/jekkos/opensourcepos.svg)](https://gemnasium.com/github.com/jekkos/opensourcepos)
+[![GitHub version](https://badge.fury.io/gh/jekkos%2Fopensourcepos.svg)](https://badge.fury.io/gh/jekkos%2Fopensourcepos)
+
+Keep the Machine Running
+------------------------
+If you like the project, and you are making money out of it on a daily basis, then consider buying me a coffee so I can keep adding features.
+
+>>>>>>> dd3bc8004d764156cf7b3eebd460743200975c6f
 Server Requirements
 -------------------
 PHP version 5.5 or newer is recommended but PHP 7.x is not fully supported yet.
@@ -13,12 +28,20 @@ PHP version 5.5 or newer is recommended but PHP 7.x is not fully supported yet.
 Reporting Bugs
 --------------
 Since PiarX4 3.0.0 is a version under development, please make sure you always run the latest 2.4_to_3.0.sql database upgrade script.
+<<<<<<< HEAD
 Please DO NOT post issues if you have not done that before running PiarX4 3.0.
+=======
+Please DO NOT post issues if you have not done that before running OSPOS 3.0.
+>>>>>>> dd3bc8004d764156cf7b3eebd460743200975c6f
 Please also make sure you have updated all the files from latest master.
 
 Bug reports must follow this schema:
 
+<<<<<<< HEAD
 1. PiarX4 **version string with git commit hash** (see PiarX4 footer)
+=======
+1. PiarX4 **version string with git commit hash** (see ospos footer)
+>>>>>>> dd3bc8004d764156cf7b3eebd460743200975c6f
 2. OS name and version running your Web Server (e.g. Linux Ubuntu 15.0)
 3. Web Server name and version (e.g. Apache 2.4)
 4. Database name and version (e.g. =< MySQL 5.6)
