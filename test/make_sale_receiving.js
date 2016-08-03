@@ -1,5 +1,5 @@
 var assert = require('assert');
-var ospos = require('./ospos');
+var PiarX4 = require('./PiarX4');
 require('wd');
 
 describe("create item and make sale", function () {
@@ -10,11 +10,11 @@ describe("create item and make sale", function () {
     var item = {name: "anItem", category: "aCategory", cost_price: 10, unit_price: 20};
 
     it("should be able to add item", function (done) {
-        return ospos.create_item(this.browser, item).then(done, done);
+        return PiarX4.create_item(this.browser, item).then(done, done);
     });
 
     it("should be able to make sale", function(done) {
-        return this.browser.get(ospos.url("/index.php/sales"))
+        return this.browser.get(PiarX4.url("/index.php/sales"))
             .elementById("item", def_timeout).clear().type("1\uE007")
             .elementByName("quantity", def_timeout).clear().type("2").elementByName("discount", def_timeout).type(item.cost_price).elementByCssSelector(".glyphicon.glyphicon-refresh").click()
             .elementById("add_payment_button", def_timeout).click().elementByCssSelector("tbody#payment_contents tr td:last-child", def_timeout).text().then(function(value) {
@@ -28,7 +28,7 @@ describe("create item and make sale", function () {
 
 
     it("should be able to make receiving", function(done) {
-        return this.browser.get(ospos.url("/index.php/receivings"))
+        return this.browser.get(PiarX4.url("/index.php/receivings"))
             .elementById("item", def_timeout).clear().type("1\uE007")
             .elementByName("quantity", def_timeout).clear().type("2").elementByCssSelector("a[title='Update']").click()
             .elementByCssSelector("td:nth-last-child(2)").text().then(function(value) {

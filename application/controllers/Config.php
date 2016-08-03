@@ -12,14 +12,14 @@ class Config extends Secure_Controller
 	}
 
 	/*
-	* This function loads all the licenses starting with the first one being OSPOS one
+	* This function loads all the licenses starting with the first one being PiarX4 one
 	*/
 	private function _licenses()
 	{
 		$i = 0;
 		$license = array();
 
-		$license[$i]['title'] = 'Open Source Point Of Sale ' . $this->config->item('application_version');
+		$license[$i]['title'] = 'PiarX4 ' . $this->config->item('application_version');
 
 		if(file_exists('COPYING'))
 		{
@@ -27,7 +27,7 @@ class Config extends Secure_Controller
 		}
 		else
 		{
-			$license[$i]['text'] = 'COPYING file must be in OSPOS root directory. You are not allowed to use OSPOS application until the distribution copy of COPYING file is present.';
+			$license[$i]['text'] = 'COPYING file must be in PiarX4 root directory. You are not allowed to use PiarX4 application until the distribution copy of COPYING file is present.';
 		}
 
 		// read all the files in the dir license
@@ -363,12 +363,12 @@ class Config extends Secure_Controller
 
     		$prefs = array(
 				'format' => 'zip',
-				'filename' => 'ospos.sql'
+				'filename' => 'PiarX4.sql'
     		);
     		 
     		$backup = $this->dbutil->backup($prefs);
     		 
-			$file_name = 'ospos-' . date("Y-m-d-H-i-s") .'.zip';
+			$file_name = 'PiarX4-' . date("Y-m-d-H-i-s") .'.zip';
     		$save = 'uploads/' . $file_name;
     		$this->load->helper('download');
     		while(ob_get_level())

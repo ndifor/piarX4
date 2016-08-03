@@ -1,21 +1,21 @@
 
 --
--- Table structure for table `ospos_app_config`
+-- Table structure for table `PiarX4_app_config`
 --
 
-CREATE TABLE `ospos_app_config` (
+CREATE TABLE `PiarX4_app_config` (
   `key` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_app_config`
+-- Dumping data for table `PiarX4_app_config`
 --
 
-INSERT INTO `ospos_app_config` (`key`, `value`) VALUES
+INSERT INTO `PiarX4_app_config` (`key`, `value`) VALUES
 ('address', '123 Nowhere street'),
-('company', 'Open Source Point of Sale'),
+('company', 'PiarX4'),
 ('default_tax_rate', '8'),
 ('email', 'admin@pappastech.com'),
 ('fax', ''),
@@ -84,10 +84,10 @@ INSERT INTO `ospos_app_config` (`key`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_customers`
+-- Table structure for table `PiarX4_customers`
 --
 
-CREATE TABLE `ospos_customers` (
+CREATE TABLE `PiarX4_customers` (
   `person_id` int(10) NOT NULL,
   `company_name` varchar(255) DEFAULT NULL,
   `account_number` varchar(255) DEFAULT NULL,
@@ -99,17 +99,17 @@ CREATE TABLE `ospos_customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_customers`
+-- Dumping data for table `PiarX4_customers`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_employees`
+-- Table structure for table `PiarX4_employees`
 --
 
-CREATE TABLE `ospos_employees` (
+CREATE TABLE `PiarX4_employees` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `person_id` int(10) NOT NULL,
@@ -119,19 +119,19 @@ CREATE TABLE `ospos_employees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_employees`
+-- Dumping data for table `PiarX4_employees`
 --
 
-INSERT INTO `ospos_employees` (`username`, `password`, `person_id`, `deleted`) VALUES
+INSERT INTO `PiarX4_employees` (`username`, `password`, `person_id`, `deleted`) VALUES
 ('admin', '439a6de57d475c1a0ba9bcb1c39f0af6', 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_giftcards`
+-- Table structure for table `PiarX4_giftcards`
 --
 
-CREATE TABLE `ospos_giftcards` (
+CREATE TABLE `PiarX4_giftcards` (
   `record_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `giftcard_id` int(11) NOT NULL AUTO_INCREMENT,
   `giftcard_number` int(10) NOT NULL,
@@ -144,17 +144,17 @@ CREATE TABLE `ospos_giftcards` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_giftcards`
+-- Dumping data for table `PiarX4_giftcards`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_inventory`
+-- Table structure for table `PiarX4_inventory`
 --
 
-CREATE TABLE `ospos_inventory` (
+CREATE TABLE `PiarX4_inventory` (
   `trans_id` int(11) NOT NULL AUTO_INCREMENT,
   `trans_items` int(11) NOT NULL DEFAULT '0',
   `trans_user` int(11) NOT NULL DEFAULT '0',
@@ -169,17 +169,17 @@ CREATE TABLE `ospos_inventory` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  ;
 
 --
--- Dumping data for table `ospos_inventory`
+-- Dumping data for table `PiarX4_inventory`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_items`
+-- Table structure for table `PiarX4_items`
 --
 
-CREATE TABLE `ospos_items` (
+CREATE TABLE `PiarX4_items` (
   `name` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
   `supplier_id` int(11) DEFAULT NULL,
@@ -210,17 +210,17 @@ CREATE TABLE `ospos_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  ;
 
 --
--- Dumping data for table `ospos_items`
+-- Dumping data for table `PiarX4_items`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_items_taxes`
+-- Table structure for table `PiarX4_items_taxes`
 --
 
-CREATE TABLE `ospos_items_taxes` (
+CREATE TABLE `PiarX4_items_taxes` (
   `item_id` int(10) NOT NULL,
   `name` varchar(255) NOT NULL,
   `percent` decimal(15,3) NOT NULL,
@@ -228,17 +228,17 @@ CREATE TABLE `ospos_items_taxes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_items_taxes`
+-- Dumping data for table `PiarX4_items_taxes`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_item_kits`
+-- Table structure for table `PiarX4_item_kits`
 --
 
-CREATE TABLE `ospos_item_kits` (
+CREATE TABLE `PiarX4_item_kits` (
   `item_kit_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
@@ -246,35 +246,35 @@ CREATE TABLE `ospos_item_kits` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  ;
 
 --
--- Dumping data for table `ospos_item_kits`
+-- Dumping data for table `PiarX4_item_kits`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_item_kit_items`
+-- Table structure for table `PiarX4_item_kit_items`
 --
 
-CREATE TABLE `ospos_item_kit_items` (
+CREATE TABLE `PiarX4_item_kit_items` (
   `item_kit_id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
   `quantity` decimal(15,3) NOT NULL,
   PRIMARY KEY (`item_kit_id`,`item_id`,`quantity`),
-  KEY `ospos_item_kit_items_ibfk_2` (`item_id`)
+  KEY `PiarX4_item_kit_items_ibfk_2` (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_item_kit_items`
+-- Dumping data for table `PiarX4_item_kit_items`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_item_quantities`
+-- Table structure for table `PiarX4_item_quantities`
 --
 
-CREATE TABLE IF NOT EXISTS `ospos_item_quantities` (
+CREATE TABLE IF NOT EXISTS `PiarX4_item_quantities` (
   `item_id` int(11) NOT NULL,
   `location_id` int(11) NOT NULL,
   `quantity` decimal(15,3) NOT NULL DEFAULT '0',
@@ -286,10 +286,10 @@ CREATE TABLE IF NOT EXISTS `ospos_item_quantities` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_modules`
+-- Table structure for table `PiarX4_modules`
 --
 
-CREATE TABLE `ospos_modules` (
+CREATE TABLE `PiarX4_modules` (
   `name_lang_key` varchar(255) NOT NULL,
   `desc_lang_key` varchar(255) NOT NULL,
   `sort` int(10) NOT NULL,
@@ -300,10 +300,10 @@ CREATE TABLE `ospos_modules` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_modules`
+-- Dumping data for table `PiarX4_modules`
 --
 
-INSERT INTO `ospos_modules` (`name_lang_key`, `desc_lang_key`, `sort`, `module_id`) VALUES
+INSERT INTO `PiarX4_modules` (`name_lang_key`, `desc_lang_key`, `sort`, `module_id`) VALUES
 ('module_config', 'module_config_desc', 110, 'config'),
 ('module_customers', 'module_customers_desc', 10, 'customers'),
 ('module_employees', 'module_employees_desc', 80, 'employees'),
@@ -319,10 +319,10 @@ INSERT INTO `ospos_modules` (`name_lang_key`, `desc_lang_key`, `sort`, `module_i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_people`
+-- Table structure for table `PiarX4_people`
 --
 
-CREATE TABLE `ospos_people` (
+CREATE TABLE `PiarX4_people` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `gender` int(1) DEFAULT NULL,
@@ -340,19 +340,19 @@ CREATE TABLE `ospos_people` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8  ;
 
 --
--- Dumping data for table `ospos_people`
+-- Dumping data for table `PiarX4_people`
 --
 
-INSERT INTO `ospos_people` (`first_name`, `last_name`, `phone_number`, `email`, `address_1`, `address_2`, `city`, `state`, `zip`, `country`, `comments`, `person_id`) VALUES
+INSERT INTO `PiarX4_people` (`first_name`, `last_name`, `phone_number`, `email`, `address_1`, `address_2`, `city`, `state`, `zip`, `country`, `comments`, `person_id`) VALUES
 ('John', 'Doe', '555-555-5555', 'admin@pappastech.com', 'Address 1', '', '', '', '', '', '', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_permissions`
+-- Table structure for table `PiarX4_permissions`
 --
 
-CREATE TABLE `ospos_permissions` (
+CREATE TABLE `PiarX4_permissions` (
   `permission_id` varchar(255) NOT NULL,
   `module_id` varchar(255) NOT NULL,
   `location_id` int(10) DEFAULT NULL,
@@ -361,10 +361,10 @@ CREATE TABLE `ospos_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_permissions`
+-- Dumping data for table `PiarX4_permissions`
 --
 
-INSERT INTO `ospos_permissions` (`permission_id`, `module_id`) VALUES
+INSERT INTO `PiarX4_permissions` (`permission_id`, `module_id`) VALUES
 ('reports_customers', 'reports'),
 ('reports_receivings', 'reports'),
 ('reports_items', 'reports'),
@@ -388,7 +388,7 @@ INSERT INTO `ospos_permissions` (`permission_id`, `module_id`) VALUES
 ('config', 'config'),
 ('suppliers', 'suppliers');
 
-INSERT INTO `ospos_permissions` (`permission_id`, `module_id`, `location_id`) VALUES
+INSERT INTO `PiarX4_permissions` (`permission_id`, `module_id`, `location_id`) VALUES
 ('items_stock', 'items', 1),
 ('sales_stock', 'sales', 1),
 ('receivings_stock', 'receivings', 1);
@@ -396,21 +396,21 @@ INSERT INTO `ospos_permissions` (`permission_id`, `module_id`, `location_id`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_grants`
+-- Table structure for table `PiarX4_grants`
 --
 
-CREATE TABLE `ospos_grants` (
+CREATE TABLE `PiarX4_grants` (
   `permission_id` varchar(255) NOT NULL,
   `person_id` int(10) NOT NULL,
   PRIMARY KEY (`permission_id`,`person_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_grants`
+-- Dumping data for table `PiarX4_grants`
 --
 -- --------------------------------------------------------
 
-INSERT INTO `ospos_grants` (`permission_id`, `person_id`) VALUES
+INSERT INTO `PiarX4_grants` (`permission_id`, `person_id`) VALUES
 ('reports_customers', 1),
 ('reports_receivings', 1), 
 ('reports_items', 1),
@@ -438,10 +438,10 @@ INSERT INTO `ospos_grants` (`permission_id`, `person_id`) VALUES
 ('suppliers', 1);
 
 --
--- Table structure for table `ospos_receivings`
+-- Table structure for table `PiarX4_receivings`
 --
 
-CREATE TABLE `ospos_receivings` (
+CREATE TABLE `PiarX4_receivings` (
   `receiving_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `supplier_id` int(10) DEFAULT NULL,
   `employee_id` int(10) NOT NULL DEFAULT '0',
@@ -456,17 +456,17 @@ CREATE TABLE `ospos_receivings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  ;
 
 --
--- Dumping data for table `ospos_receivings`
+-- Dumping data for table `PiarX4_receivings`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_receivings_items`
+-- Table structure for table `PiarX4_receivings_items`
 --
 
-CREATE TABLE `ospos_receivings_items` (
+CREATE TABLE `PiarX4_receivings_items` (
   `receiving_id` int(10) NOT NULL DEFAULT '0',
   `item_id` int(10) NOT NULL DEFAULT '0',
   `description` varchar(30) DEFAULT NULL,
@@ -483,17 +483,17 @@ CREATE TABLE `ospos_receivings_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_receivings_items`
+-- Dumping data for table `PiarX4_receivings_items`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_sales`
+-- Table structure for table `PiarX4_sales`
 --
 
-CREATE TABLE `ospos_sales` (
+CREATE TABLE `PiarX4_sales` (
   `sale_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `customer_id` int(10) DEFAULT NULL,
   `employee_id` int(10) NOT NULL DEFAULT '0',
@@ -508,17 +508,17 @@ CREATE TABLE `ospos_sales` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  ;
 
 --
--- Dumping data for table `ospos_sales`
+-- Dumping data for table `PiarX4_sales`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_sales_items`
+-- Table structure for table `PiarX4_sales_items`
 --
 
-CREATE TABLE `ospos_sales_items` (
+CREATE TABLE `PiarX4_sales_items` (
   `sale_id` int(10) NOT NULL DEFAULT '0',
   `item_id` int(10) NOT NULL DEFAULT '0',
   `description` varchar(30) DEFAULT NULL,
@@ -536,17 +536,17 @@ CREATE TABLE `ospos_sales_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_sales_items`
+-- Dumping data for table `PiarX4_sales_items`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_sales_items_taxes`
+-- Table structure for table `PiarX4_sales_items_taxes`
 --
 
-CREATE TABLE `ospos_sales_items_taxes` (
+CREATE TABLE `PiarX4_sales_items_taxes` (
   `sale_id` int(10) NOT NULL,
   `item_id` int(10) NOT NULL,
   `line` int(3) NOT NULL DEFAULT '0',
@@ -558,17 +558,17 @@ CREATE TABLE `ospos_sales_items_taxes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_sales_items_taxes`
+-- Dumping data for table `PiarX4_sales_items_taxes`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_sales_payments`
+-- Table structure for table `PiarX4_sales_payments`
 --
 
-CREATE TABLE `ospos_sales_payments` (
+CREATE TABLE `PiarX4_sales_payments` (
   `sale_id` int(10) NOT NULL,
   `payment_type` varchar(40) NOT NULL,
   `payment_amount` decimal(15,2) NOT NULL,
@@ -577,17 +577,17 @@ CREATE TABLE `ospos_sales_payments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_sales_payments`
+-- Dumping data for table `PiarX4_sales_payments`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_sales_suspended`
+-- Table structure for table `PiarX4_sales_suspended`
 --
 
-CREATE TABLE `ospos_sales_suspended` (
+CREATE TABLE `PiarX4_sales_suspended` (
   `sale_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `customer_id` int(10) DEFAULT NULL,
   `employee_id` int(10) NOT NULL DEFAULT '0',
@@ -600,17 +600,17 @@ CREATE TABLE `ospos_sales_suspended` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  ;
 
 --
--- Dumping data for table `ospos_sales_suspended`
+-- Dumping data for table `PiarX4_sales_suspended`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_sales_suspended_items`
+-- Table structure for table `PiarX4_sales_suspended_items`
 --
 
-CREATE TABLE `ospos_sales_suspended_items` (
+CREATE TABLE `PiarX4_sales_suspended_items` (
   `sale_id` int(10) NOT NULL DEFAULT '0',
   `item_id` int(10) NOT NULL DEFAULT '0',
   `description` varchar(30) DEFAULT NULL,
@@ -627,17 +627,17 @@ CREATE TABLE `ospos_sales_suspended_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_sales_suspended_items`
+-- Dumping data for table `PiarX4_sales_suspended_items`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_sales_suspended_items_taxes`
+-- Table structure for table `PiarX4_sales_suspended_items_taxes`
 --
 
-CREATE TABLE `ospos_sales_suspended_items_taxes` (
+CREATE TABLE `PiarX4_sales_suspended_items_taxes` (
   `sale_id` int(10) NOT NULL,
   `item_id` int(10) NOT NULL,
   `line` int(3) NOT NULL DEFAULT '0',
@@ -648,17 +648,17 @@ CREATE TABLE `ospos_sales_suspended_items_taxes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_sales_suspended_items_taxes`
+-- Dumping data for table `PiarX4_sales_suspended_items_taxes`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_sales_suspended_payments`
+-- Table structure for table `PiarX4_sales_suspended_payments`
 --
 
-CREATE TABLE `ospos_sales_suspended_payments` (
+CREATE TABLE `PiarX4_sales_suspended_payments` (
   `sale_id` int(10) NOT NULL,
   `payment_type` varchar(40) NOT NULL,
   `payment_amount` decimal(15,2) NOT NULL,
@@ -666,17 +666,17 @@ CREATE TABLE `ospos_sales_suspended_payments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_sales_suspended_payments`
+-- Dumping data for table `PiarX4_sales_suspended_payments`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_sessions`
+-- Table structure for table `PiarX4_sessions`
 --
 
-CREATE TABLE `ospos_sessions` (
+CREATE TABLE `PiarX4_sessions` (
   `id` varchar(40) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
   `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
@@ -685,16 +685,16 @@ CREATE TABLE `ospos_sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_sessions`
+-- Dumping data for table `PiarX4_sessions`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_stock_locations`
+-- Table structure for table `PiarX4_stock_locations`
 --
 
-CREATE TABLE `ospos_stock_locations` (
+CREATE TABLE `PiarX4_stock_locations` (
   `location_id` int(11) NOT NULL AUTO_INCREMENT,
   `location_name` varchar(255) DEFAULT NULL,
   `deleted` int(1) NOT NULL DEFAULT '0',
@@ -702,18 +702,18 @@ CREATE TABLE `ospos_stock_locations` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 --
--- Dumping data for table `ospos_stock_locations`
+-- Dumping data for table `PiarX4_stock_locations`
 --
 
-INSERT INTO `ospos_stock_locations` ( `deleted`, `location_name` ) VALUES ('0', 'stock');
+INSERT INTO `PiarX4_stock_locations` ( `deleted`, `location_name` ) VALUES ('0', 'stock');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ospos_suppliers`
+-- Table structure for table `PiarX4_suppliers`
 --
 
-CREATE TABLE `ospos_suppliers` (
+CREATE TABLE `PiarX4_suppliers` (
   `person_id` int(10) NOT NULL,
   `company_name` varchar(255) NOT NULL,
   `agency_name` varchar(255) NOT NULL,
@@ -724,6 +724,6 @@ CREATE TABLE `ospos_suppliers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ospos_suppliers`
+-- Dumping data for table `PiarX4_suppliers`
 --
 

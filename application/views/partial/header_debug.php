@@ -14,8 +14,8 @@
 		<link rel="stylesheet" type="text/css" href="css/barcode_font.css"/>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.autocomplete.css"/>
 		<link rel="stylesheet" type="text/css" href="css/invoice.css"/>
-		<link rel="stylesheet" type="text/css" href="css/ospos.css"/>
-		<link rel="stylesheet" type="text/css" href="css/ospos_print.css"/>
+		<link rel="stylesheet" type="text/css" href="css/PiarX4.css"/>
+		<link rel="stylesheet" type="text/css" href="css/PiarX4_print.css"/>
 		<link rel="stylesheet" type="text/css" href="css/popupbox.css"/>
 		<link rel="stylesheet" type="text/css" href="css/receipt.css"/>
 		<link rel="stylesheet" type="text/css" href="css/register.css"/>

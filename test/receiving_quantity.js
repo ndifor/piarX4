@@ -1,5 +1,5 @@
 var assert = require('assert');
-var ospos = require('./ospos');
+var PiarX4 = require('./PiarX4');
 
 describe("test receiving quantity", function() {
 
@@ -14,11 +14,11 @@ describe("test receiving quantity", function() {
     };
 
     it("should be able to create item with receiving quantity", function(done) {
-        return ospos.create_item(this.browser, item).then(done, done);
+        return PiarX4.create_item(this.browser, item).then(done, done);
     });
 
     it("should be able to receive quantities with multiplier", function(done) {
-        this.browser.get(ospos.url('/index.php/receivings')).elementById("item").clear().type(item.name)
+        this.browser.get(PiarX4.url('/index.php/receivings')).elementById("item").clear().type(item.name)
             .elementByCssSelector(".ui-autocomplete .ui-menu-item", def_timeout).click()
             .elementByName("quantity")
             .elementByCssSelector("#cart_contents tr td:nth-child(5)").text().then(function(value) {

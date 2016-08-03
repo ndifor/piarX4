@@ -13,13 +13,13 @@ web:
     environment:
         - MYSQL_USERNAME=admin
         - MYSQL_PASSWORD=pointofsale
-        - MYSQL_DB_NAME=ospos
+        - MYSQL_DB_NAME=PiarX4
         - MYSQL_HOST_NAME=mysql
 mysql:
     image: mariadb:10.0.26
     environment:
         - MYSQL_ROOT_PASSWORD=pointofsale
-        - MYSQL_DATABASE=ospos
+        - MYSQL_DATABASE=PiarX4
         - MYSQL_USER=admin
         - MYSQL_PASSWORD=pointofsale
     ports:

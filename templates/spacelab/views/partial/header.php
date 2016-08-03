@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<base href="<?php echo base_url();?>" />
-	<title><?php echo $this->config->item('company') . ' | ' . $this->lang->line('common_powered_by') . ' OSPOS ' . $this->config->item('application_version') ?></title>
+	<title><?php echo $this->config->item('company') . ' | ' . $this->lang->line('common_powered_by') . ' PiarX4 ' . $this->config->item('application_version') ?></title>
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 	<?php if ($this->input->cookie('debug') == "true" || $this->input->get("debug") == "true") : ?>
 		<?php $this->load->view('partial/header_debug'); ?>
@@ -57,7 +57,7 @@
 						<span class="icon-bar"></span>
 					</button>
 			
-					<a class="navbar-brand hidden-sm" href="<?php echo site_url(); ?>">OSPOS</a>
+					<a class="navbar-brand hidden-sm" href="<?php echo site_url(); ?>">PiarX4</a>
 				</div>
 
 				<div class="navbar-collapse collapse">

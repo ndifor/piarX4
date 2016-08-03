@@ -7,7 +7,7 @@
 |
 | the theme folder name. If the folder doesn't exist it will use default theme
 |
-| The default theme for OSPOS is flatly: http://bootswatch.com/flatly/
+| The default theme for PiarX4 is flatly: http://bootswatch.com/flatly/
 |
 |
 */
