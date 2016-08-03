@@ -1,7 +1,7 @@
 -- alter permissions table
-DROP TABLE `ospos_permissions`;
+DROP TABLE `PiarX4_permissions`;
 
-CREATE TABLE `ospos_permissions` (
+CREATE TABLE `PiarX4_permissions` (
   `permission_id` varchar(255) NOT NULL,
   `module_id` varchar(255) NOT NULL,
   `location_id` int(10) DEFAULT NULL,
@@ -9,11 +9,11 @@ CREATE TABLE `ospos_permissions` (
   KEY `module_id` (`module_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE `ospos_permissions`
-  ADD CONSTRAINT `ospos_permissions_ibfk_1` FOREIGN KEY (`module_id`) REFERENCES `ospos_modules` (`module_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `ospos_permissions_ibfk_2` FOREIGN KEY (`location_id`) REFERENCES `ospos_stock_locations` (`location_id`) ON DELETE CASCADE;
+ALTER TABLE `PiarX4_permissions`
+  ADD CONSTRAINT `PiarX4_permissions_ibfk_1` FOREIGN KEY (`module_id`) REFERENCES `PiarX4_modules` (`module_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `PiarX4_permissions_ibfk_2` FOREIGN KEY (`location_id`) REFERENCES `PiarX4_stock_locations` (`location_id`) ON DELETE CASCADE;
 
-INSERT INTO `ospos_permissions` (`permission_id`, `module_id`) VALUES
+INSERT INTO `PiarX4_permissions` (`permission_id`, `module_id`) VALUES
 ('reports_customers', 'reports'),
 ('reports_receivings', 'reports'),
 ('reports_items', 'reports'),
@@ -37,21 +37,21 @@ INSERT INTO `ospos_permissions` (`permission_id`, `module_id`) VALUES
 ('suppliers', 'suppliers');
 
 -- add permissions for existing stock locations
-INSERT INTO `ospos_permissions` (permission_id, module_id, location_id) 
-(SELECT CONCAT('items_', location_name), 'items', location_id FROM ospos_stock_locations);
+INSERT INTO `PiarX4_permissions` (permission_id, module_id, location_id) 
+(SELECT CONCAT('items_', location_name), 'items', location_id FROM PiarX4_stock_locations);
 
-CREATE TABLE `ospos_grants` (
+CREATE TABLE `PiarX4_grants` (
   `permission_id` varchar(255) NOT NULL,
   `person_id` int(10) NOT NULL,
   PRIMARY KEY (`permission_id`,`person_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE `ospos_grants`
-  ADD CONSTRAINT `ospos_grants_ibfk_2` foreign key (`person_id`) references `ospos_employees` (`person_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `ospos_grants_ibfk_1` FOREIGN KEY (`permission_id`) REFERENCES `ospos_permissions`(`permission_id`) ON DELETE CASCADE; 
+ALTER TABLE `PiarX4_grants`
+  ADD CONSTRAINT `PiarX4_grants_ibfk_2` foreign key (`person_id`) references `PiarX4_employees` (`person_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `PiarX4_grants_ibfk_1` FOREIGN KEY (`permission_id`) REFERENCES `PiarX4_permissions`(`permission_id`) ON DELETE CASCADE; 
 
 -- add grants for all employees
-INSERT INTO `ospos_grants` (`permission_id`, `person_id`) VALUES
+INSERT INTO `PiarX4_grants` (`permission_id`, `person_id`) VALUES
 ('reports_customers', 1),
 ('reports_receivings', 1), 
 ('reports_items', 1),
@@ -78,31 +78,31 @@ INSERT INTO `ospos_grants` (`permission_id`, `person_id`) VALUES
 ('suppliers', 1);
 
 -- add config options for tax inclusive sales
-INSERT INTO `ospos_app_config` (`key`, `value`) VALUES 
+INSERT INTO `PiarX4_app_config` (`key`, `value`) VALUES 
 ('tax_included', '0'),
 ('recv_invoice_format', '$CO'),
 ('sales_invoice_format', '$CO'),
 
 -- add invoice_number column to receivings table
-ALTER TABLE `ospos_receivings` 
+ALTER TABLE `PiarX4_receivings` 
    ADD COLUMN `invoice_number` varchar(32) DEFAULT NULL,
    ADD UNIQUE `invoice_number` (`invoice_number`);
 
 -- add invoice_number column to sales table
-ALTER TABLE `ospos_sales` 
+ALTER TABLE `PiarX4_sales` 
    ADD COLUMN `invoice_number` varchar(32) DEFAULT NULL,
    ADD UNIQUE `invoice_number` (`invoice_number`);
 
 -- add invoice_number column to suspended sales table
-ALTER TABLE `ospos_sales_suspended` 
+ALTER TABLE `PiarX4_sales_suspended` 
    ADD COLUMN `invoice_number` varchar(32) DEFAULT NULL,
    ADD UNIQUE `invoice_number` (`invoice_number`);
    
 -- add invoice_number column to receivings table
-ALTER TABLE `ospos_items` 
+ALTER TABLE `PiarX4_items` 
    ADD COLUMN `receiving_quantity` int(11) DEFAULT '1',
    DROP COLUMN `quantity`;
 
 -- add foreign key to giftcards table
-ALTER TABLE `ospos_giftcards`
-  ADD CONSTRAINT `ospos_giftcards_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `ospos_people` (`person_id`);
+ALTER TABLE `PiarX4_giftcards`
+  ADD CONSTRAINT `PiarX4_giftcards_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `PiarX4_people` (`person_id`);

@@ -12,7 +12,7 @@ class Email_lib
 
 		$config = array(
 			'mailtype' => 'html',
-			'useragent' => 'OSPOS',
+			'useragent' => 'PiarX4',
 			'validate' => TRUE,
 			'protocol' => $this->CI->config->item('protocol'),
 			'mailpath' => $this->CI->config->item('mailpath'),

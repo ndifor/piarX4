@@ -1,6 +1,6 @@
 var assert = require('assert');
 
-var ospos = function() {
+var PiarX4 = function() {
 
     var server = "http://localhost";
 
@@ -45,4 +45,4 @@ var ospos = function() {
     }
 };
 
-module.exports = ospos();
+module.exports = PiarX4();

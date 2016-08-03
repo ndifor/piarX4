@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<base href="<?php echo base_url();?>" />
-	<title><?php echo $this->config->item('company') . ' | OSPOS ' . $this->config->item('application_version')  . ' | ' .  $this->lang->line('login_login'); ?></title>
+	<title><?php echo $this->config->item('company') . ' | PiarX4 ' . $this->config->item('application_version')  . ' | ' .  $this->lang->line('login_login'); ?></title>
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 	<!-- start css template tags -->
 	<link rel="stylesheet" type="text/css" href="templates/spacelab/css/bootstrap.min.css?rel=50ab19585f"/>
@@ -39,7 +39,7 @@
 			</div>
 		<?php echo form_close(); ?>
 		
-		<h1>Open Source Point Of Sale <?php echo $this->config->item('application_version'); ?></h1>
+		<h1>PiarX4 <?php echo $this->config->item('application_version'); ?></h1>
 	</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-INSERT INTO `ospos_app_config` (`key`, `value`) VALUES 
+INSERT INTO `PiarX4_app_config` (`key`, `value`) VALUES 
 ('barcode_content', 'id'),
 ('barcode_first_row', 'category'),
 ('barcode_second_row', 'item_code'),
@@ -22,33 +22,33 @@ INSERT INTO `ospos_app_config` (`key`, `value`) VALUES
 ('lines_per_page', '25'),
 ('show_total_discount', '25');
 
-INSERT INTO `ospos_permissions` (permission_id, module_id, location_id) 
-(SELECT CONCAT('sales_', location_name), 'sales', location_id FROM ospos_stock_locations);
+INSERT INTO `PiarX4_permissions` (permission_id, module_id, location_id) 
+(SELECT CONCAT('sales_', location_name), 'sales', location_id FROM PiarX4_stock_locations);
 
-INSERT INTO `ospos_permissions` (permission_id, module_id, location_id)
-(SELECT CONCAT('receivings_', location_name), 'receivings', location_id FROM ospos_stock_locations);
+INSERT INTO `PiarX4_permissions` (permission_id, module_id, location_id)
+(SELECT CONCAT('receivings_', location_name), 'receivings', location_id FROM PiarX4_stock_locations);
 
 -- add item_pic column to items table
-ALTER TABLE `ospos_items` 
+ALTER TABLE `PiarX4_items` 
    ADD COLUMN `item_pic` int(10) DEFAULT NULL;
 
-ALTER TABLE `ospos_people` 
+ALTER TABLE `PiarX4_people` 
    ADD COLUMN `gender` int(1) DEFAULT NULL;
    
 -- drop redundant payment_type column in sales, add index to sale_time to speed up sorting
-ALTER TABLE `ospos_sales`
+ALTER TABLE `PiarX4_sales`
     DROP COLUMN `payment_type`,
     ADD INDEX `sale_time` (`sale_time`);
    
-ALTER TABLE `ospos_customers`
+ALTER TABLE `PiarX4_customers`
     ADD COLUMN `company_name` varchar(255) DEFAULT NULL;
 
-ALTER TABLE `ospos_giftcards`
+ALTER TABLE `PiarX4_giftcards`
     MODIFY `person_id` int(10) DEFAULT NULL;
 
-INSERT INTO `ospos_grants` (`permission_id`, `person_id`) VALUES
+INSERT INTO `PiarX4_grants` (`permission_id`, `person_id`) VALUES
 ('sales_stock', 1),
 ('receivings_stock', 1);
 
-ALTER TABLE `ospos_receivings_items`
+ALTER TABLE `PiarX4_receivings_items`
     ADD COLUMN `receiving_quantity` int(11) NOT NULL DEFAULT '1';

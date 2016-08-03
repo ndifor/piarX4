@@ -41,7 +41,7 @@ class Secure_Controller extends CI_Controller
 		// This setting is configurable in application/config/config.php.
 		// Users can disable the XSS clean for performance reasons
 		// (cases like intranet installation with no Internet access)
-		if($this->config->item('ospos_xss_clean') == FALSE)
+		if($this->config->item('PiarX4_xss_clean') == FALSE)
 		{
 			return $str;
 		}
@@ -51,7 +51,7 @@ class Secure_Controller extends CI_Controller
 		}
 	}
 	
-	// this is the basic set of methods most OSPOS Controllers will implement
+	// this is the basic set of methods most PiarX4 Controllers will implement
 	public function index() { return FALSE; }
 	public function search() { return FALSE; }
 	public function suggest_search() { return FALSE; }

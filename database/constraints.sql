@@ -3,144 +3,144 @@
 --
 
 --
--- Constraints for table `ospos_customers`
+-- Constraints for table `PiarX4_customers`
 --
-ALTER TABLE `ospos_customers`
-  ADD CONSTRAINT `ospos_customers_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `ospos_people` (`person_id`);
+ALTER TABLE `PiarX4_customers`
+  ADD CONSTRAINT `PiarX4_customers_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `PiarX4_people` (`person_id`);
 
 --
--- Constraints for table `ospos_employees`
+-- Constraints for table `PiarX4_employees`
 --
-ALTER TABLE `ospos_employees`
-  ADD CONSTRAINT `ospos_employees_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `ospos_people` (`person_id`);
+ALTER TABLE `PiarX4_employees`
+  ADD CONSTRAINT `PiarX4_employees_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `PiarX4_people` (`person_id`);
 
 --
--- Constraints for table `ospos_inventory`
+-- Constraints for table `PiarX4_inventory`
 --
-ALTER TABLE `ospos_inventory`
-  ADD CONSTRAINT `ospos_inventory_ibfk_1` FOREIGN KEY (`trans_items`) REFERENCES `ospos_items` (`item_id`),
-  ADD CONSTRAINT `ospos_inventory_ibfk_2` FOREIGN KEY (`trans_user`) REFERENCES `ospos_employees` (`person_id`),
-  ADD CONSTRAINT `ospos_inventory_ibfk_3` FOREIGN KEY (`trans_location`) REFERENCES `ospos_stock_locations` (`location_id`);
+ALTER TABLE `PiarX4_inventory`
+  ADD CONSTRAINT `PiarX4_inventory_ibfk_1` FOREIGN KEY (`trans_items`) REFERENCES `PiarX4_items` (`item_id`),
+  ADD CONSTRAINT `PiarX4_inventory_ibfk_2` FOREIGN KEY (`trans_user`) REFERENCES `PiarX4_employees` (`person_id`),
+  ADD CONSTRAINT `PiarX4_inventory_ibfk_3` FOREIGN KEY (`trans_location`) REFERENCES `PiarX4_stock_locations` (`location_id`);
 
 --
--- Constraints for table `ospos_items`
+-- Constraints for table `PiarX4_items`
 --
-ALTER TABLE `ospos_items`
-  ADD CONSTRAINT `ospos_items_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `ospos_suppliers` (`person_id`);
+ALTER TABLE `PiarX4_items`
+  ADD CONSTRAINT `PiarX4_items_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `PiarX4_suppliers` (`person_id`);
 
 --
--- Constraints for table `ospos_items_taxes`
+-- Constraints for table `PiarX4_items_taxes`
 --
-ALTER TABLE `ospos_items_taxes`
-  ADD CONSTRAINT `ospos_items_taxes_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `ospos_items` (`item_id`) ON DELETE CASCADE;
+ALTER TABLE `PiarX4_items_taxes`
+  ADD CONSTRAINT `PiarX4_items_taxes_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `PiarX4_items` (`item_id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `ospos_item_kit_items`
+-- Constraints for table `PiarX4_item_kit_items`
 --
-ALTER TABLE `ospos_item_kit_items`
-  ADD CONSTRAINT `ospos_item_kit_items_ibfk_1` FOREIGN KEY (`item_kit_id`) REFERENCES `ospos_item_kits` (`item_kit_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `ospos_item_kit_items_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `ospos_items` (`item_id`)  ON DELETE CASCADE;
+ALTER TABLE `PiarX4_item_kit_items`
+  ADD CONSTRAINT `PiarX4_item_kit_items_ibfk_1` FOREIGN KEY (`item_kit_id`) REFERENCES `PiarX4_item_kits` (`item_kit_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `PiarX4_item_kit_items_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `PiarX4_items` (`item_id`)  ON DELETE CASCADE;
 
 --
--- Constraints for table `ospos_permissions`
+-- Constraints for table `PiarX4_permissions`
 --
-ALTER TABLE `ospos_permissions`
-  ADD CONSTRAINT `ospos_permissions_ibfk_1` FOREIGN KEY (`module_id`) REFERENCES `ospos_modules` (`module_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `ospos_permissions_ibfk_2` FOREIGN KEY (`location_id`) REFERENCES `ospos_stock_locations` (`location_id`) ON DELETE CASCADE;
+ALTER TABLE `PiarX4_permissions`
+  ADD CONSTRAINT `PiarX4_permissions_ibfk_1` FOREIGN KEY (`module_id`) REFERENCES `PiarX4_modules` (`module_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `PiarX4_permissions_ibfk_2` FOREIGN KEY (`location_id`) REFERENCES `PiarX4_stock_locations` (`location_id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `ospos_grants`
+-- Constraints for table `PiarX4_grants`
 --
-ALTER TABLE `ospos_grants`
-  ADD CONSTRAINT `ospos_grants_ibfk_1` foreign key (`permission_id`) references `ospos_permissions` (`permission_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `ospos_grants_ibfk_2` foreign key (`person_id`) references `ospos_employees` (`person_id`) ON DELETE CASCADE;
+ALTER TABLE `PiarX4_grants`
+  ADD CONSTRAINT `PiarX4_grants_ibfk_1` foreign key (`permission_id`) references `PiarX4_permissions` (`permission_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `PiarX4_grants_ibfk_2` foreign key (`person_id`) references `PiarX4_employees` (`person_id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `ospos_receivings`
+-- Constraints for table `PiarX4_receivings`
 --
-ALTER TABLE `ospos_receivings`
-  ADD CONSTRAINT `ospos_receivings_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `ospos_employees` (`person_id`),
-  ADD CONSTRAINT `ospos_receivings_ibfk_2` FOREIGN KEY (`supplier_id`) REFERENCES `ospos_suppliers` (`person_id`);
+ALTER TABLE `PiarX4_receivings`
+  ADD CONSTRAINT `PiarX4_receivings_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `PiarX4_employees` (`person_id`),
+  ADD CONSTRAINT `PiarX4_receivings_ibfk_2` FOREIGN KEY (`supplier_id`) REFERENCES `PiarX4_suppliers` (`person_id`);
 
 --
--- Constraints for table `ospos_receivings_items`
+-- Constraints for table `PiarX4_receivings_items`
 --
-ALTER TABLE `ospos_receivings_items`
-  ADD CONSTRAINT `ospos_receivings_items_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `ospos_items` (`item_id`),
-  ADD CONSTRAINT `ospos_receivings_items_ibfk_2` FOREIGN KEY (`receiving_id`) REFERENCES `ospos_receivings` (`receiving_id`);
+ALTER TABLE `PiarX4_receivings_items`
+  ADD CONSTRAINT `PiarX4_receivings_items_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `PiarX4_items` (`item_id`),
+  ADD CONSTRAINT `PiarX4_receivings_items_ibfk_2` FOREIGN KEY (`receiving_id`) REFERENCES `PiarX4_receivings` (`receiving_id`);
 
 --
--- Constraints for table `ospos_sales`
+-- Constraints for table `PiarX4_sales`
 --
-ALTER TABLE `ospos_sales`
-  ADD CONSTRAINT `ospos_sales_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `ospos_employees` (`person_id`),
-  ADD CONSTRAINT `ospos_sales_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `ospos_customers` (`person_id`);
+ALTER TABLE `PiarX4_sales`
+  ADD CONSTRAINT `PiarX4_sales_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `PiarX4_employees` (`person_id`),
+  ADD CONSTRAINT `PiarX4_sales_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `PiarX4_customers` (`person_id`);
 
 --
--- Constraints for table `ospos_sales_items`
+-- Constraints for table `PiarX4_sales_items`
 --
-ALTER TABLE `ospos_sales_items`
-  ADD CONSTRAINT `ospos_sales_items_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `ospos_items` (`item_id`),
-  ADD CONSTRAINT `ospos_sales_items_ibfk_2` FOREIGN KEY (`sale_id`) REFERENCES `ospos_sales` (`sale_id`),
-  ADD CONSTRAINT `ospos_sales_items_ibfk_3` FOREIGN KEY (`item_location`) REFERENCES `ospos_stock_locations` (`location_id`);
+ALTER TABLE `PiarX4_sales_items`
+  ADD CONSTRAINT `PiarX4_sales_items_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `PiarX4_items` (`item_id`),
+  ADD CONSTRAINT `PiarX4_sales_items_ibfk_2` FOREIGN KEY (`sale_id`) REFERENCES `PiarX4_sales` (`sale_id`),
+  ADD CONSTRAINT `PiarX4_sales_items_ibfk_3` FOREIGN KEY (`item_location`) REFERENCES `PiarX4_stock_locations` (`location_id`);
 
 --
--- Constraints for table `ospos_sales_items_taxes`
+-- Constraints for table `PiarX4_sales_items_taxes`
 --
-ALTER TABLE `ospos_sales_items_taxes`
-  ADD CONSTRAINT `ospos_sales_items_taxes_ibfk_1` FOREIGN KEY (`sale_id`) REFERENCES `ospos_sales_items` (`sale_id`),
-  ADD CONSTRAINT `ospos_sales_items_taxes_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `ospos_items` (`item_id`);
+ALTER TABLE `PiarX4_sales_items_taxes`
+  ADD CONSTRAINT `PiarX4_sales_items_taxes_ibfk_1` FOREIGN KEY (`sale_id`) REFERENCES `PiarX4_sales_items` (`sale_id`),
+  ADD CONSTRAINT `PiarX4_sales_items_taxes_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `PiarX4_items` (`item_id`);
 
 --
--- Constraints for table `ospos_sales_payments`
+-- Constraints for table `PiarX4_sales_payments`
 --
-ALTER TABLE `ospos_sales_payments`
-  ADD CONSTRAINT `ospos_sales_payments_ibfk_1` FOREIGN KEY (`sale_id`) REFERENCES `ospos_sales` (`sale_id`);
+ALTER TABLE `PiarX4_sales_payments`
+  ADD CONSTRAINT `PiarX4_sales_payments_ibfk_1` FOREIGN KEY (`sale_id`) REFERENCES `PiarX4_sales` (`sale_id`);
 
 --
--- Constraints for table `ospos_sales_suspended`
+-- Constraints for table `PiarX4_sales_suspended`
 --
-ALTER TABLE `ospos_sales_suspended`
-  ADD CONSTRAINT `ospos_sales_suspended_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `ospos_employees` (`person_id`),
-  ADD CONSTRAINT `ospos_sales_suspended_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `ospos_customers` (`person_id`);
+ALTER TABLE `PiarX4_sales_suspended`
+  ADD CONSTRAINT `PiarX4_sales_suspended_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `PiarX4_employees` (`person_id`),
+  ADD CONSTRAINT `PiarX4_sales_suspended_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `PiarX4_customers` (`person_id`);
 
 --
--- Constraints for table `ospos_sales_suspended_items`
+-- Constraints for table `PiarX4_sales_suspended_items`
 --
-ALTER TABLE `ospos_sales_suspended_items`
-  ADD CONSTRAINT `ospos_sales_suspended_items_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `ospos_items` (`item_id`),
-  ADD CONSTRAINT `ospos_sales_suspended_items_ibfk_2` FOREIGN KEY (`sale_id`) REFERENCES `ospos_sales_suspended` (`sale_id`),
-  ADD CONSTRAINT `ospos_sales_suspended_items_ibfk_3` FOREIGN KEY (`item_location`) REFERENCES `ospos_stock_locations` (`location_id`);
+ALTER TABLE `PiarX4_sales_suspended_items`
+  ADD CONSTRAINT `PiarX4_sales_suspended_items_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `PiarX4_items` (`item_id`),
+  ADD CONSTRAINT `PiarX4_sales_suspended_items_ibfk_2` FOREIGN KEY (`sale_id`) REFERENCES `PiarX4_sales_suspended` (`sale_id`),
+  ADD CONSTRAINT `PiarX4_sales_suspended_items_ibfk_3` FOREIGN KEY (`item_location`) REFERENCES `PiarX4_stock_locations` (`location_id`);
 
 --
--- Constraints for table `ospos_sales_suspended_items_taxes`
+-- Constraints for table `PiarX4_sales_suspended_items_taxes`
 --
-ALTER TABLE `ospos_sales_suspended_items_taxes`
-  ADD CONSTRAINT `ospos_sales_suspended_items_taxes_ibfk_1` FOREIGN KEY (`sale_id`) REFERENCES `ospos_sales_suspended_items` (`sale_id`),
-  ADD CONSTRAINT `ospos_sales_suspended_items_taxes_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `ospos_items` (`item_id`);
+ALTER TABLE `PiarX4_sales_suspended_items_taxes`
+  ADD CONSTRAINT `PiarX4_sales_suspended_items_taxes_ibfk_1` FOREIGN KEY (`sale_id`) REFERENCES `PiarX4_sales_suspended_items` (`sale_id`),
+  ADD CONSTRAINT `PiarX4_sales_suspended_items_taxes_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `PiarX4_items` (`item_id`);
 
 --
--- Constraints for table `ospos_sales_suspended_payments`
+-- Constraints for table `PiarX4_sales_suspended_payments`
 --
-ALTER TABLE `ospos_sales_suspended_payments`
-  ADD CONSTRAINT `ospos_sales_suspended_payments_ibfk_1` FOREIGN KEY (`sale_id`) REFERENCES `ospos_sales_suspended` (`sale_id`);
+ALTER TABLE `PiarX4_sales_suspended_payments`
+  ADD CONSTRAINT `PiarX4_sales_suspended_payments_ibfk_1` FOREIGN KEY (`sale_id`) REFERENCES `PiarX4_sales_suspended` (`sale_id`);
 
 --
--- Constraints for table `ospos_item_quantities`
+-- Constraints for table `PiarX4_item_quantities`
 --
-ALTER TABLE `ospos_item_quantities`
-  ADD CONSTRAINT `ospos_item_quantities_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `ospos_items` (`item_id`),
-  ADD CONSTRAINT `ospos_item_quantities_ibfk_2` FOREIGN KEY (`location_id`) REFERENCES `ospos_stock_locations` (`location_id`);
+ALTER TABLE `PiarX4_item_quantities`
+  ADD CONSTRAINT `PiarX4_item_quantities_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `PiarX4_items` (`item_id`),
+  ADD CONSTRAINT `PiarX4_item_quantities_ibfk_2` FOREIGN KEY (`location_id`) REFERENCES `PiarX4_stock_locations` (`location_id`);
 
 --
--- Constraints for table `ospos_suppliers`
+-- Constraints for table `PiarX4_suppliers`
 --
-ALTER TABLE `ospos_suppliers`
-  ADD CONSTRAINT `ospos_suppliers_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `ospos_people` (`person_id`);
+ALTER TABLE `PiarX4_suppliers`
+  ADD CONSTRAINT `PiarX4_suppliers_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `PiarX4_people` (`person_id`);
   
 --
--- Constraints for table `ospos_giftcards`
+-- Constraints for table `PiarX4_giftcards`
 --
-ALTER TABLE `ospos_giftcards`
-  ADD CONSTRAINT `ospos_giftcards_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `ospos_people` (`person_id`);
+ALTER TABLE `PiarX4_giftcards`
+  ADD CONSTRAINT `PiarX4_giftcards_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `PiarX4_people` (`person_id`);
 

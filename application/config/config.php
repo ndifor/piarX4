@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Code Version
 |--------------------------------------------------------------------------
 |
-| This is the version of Open Source Point of Sale you're running
+| This is the version of PiarX4 you're running
 |
 |
 */
@@ -25,7 +25,7 @@ $config['commit_sha1'] = '$Id$';
 
 /*
 |--------------------------------------------------------------------------
-| Internal to OSPOS XSS Clean
+| Internal to PiarX4 XSS Clean
 |--------------------------------------------------------------------------
 |
 | This is to indicated whether we want XSS clean to be performed or not
@@ -33,7 +33,7 @@ $config['commit_sha1'] = '$Id$';
 | however intranet only installations may not need this so they can set FALSE to improve performance
 |
 */
-$config['ospos_xss_clean'] = TRUE;
+$config['PiarX4_xss_clean'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -404,7 +404,7 @@ $config['encryption_key'] = '';
 |
 */
 $config['sess_driver'] = 'database';
-$config['sess_cookie_name'] = 'ospos_session';
+$config['sess_cookie_name'] = 'PiarX4_session';
 $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = 'sessions';
 $config['sess_match_ip'] = TRUE;
@@ -475,8 +475,8 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
 $config['csrf_protection'] = TRUE;
-$config['csrf_token_name'] = 'csrf_ospos_v3';
-$config['csrf_cookie_name'] = 'csrf_cookie_ospos_v3';
+$config['csrf_token_name'] = 'csrf_PiarX4_v3';
+$config['csrf_cookie_name'] = 'csrf_cookie_PiarX4_v3';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();

@@ -80,7 +80,7 @@ $db['default'] = array(
 	'password' => 'pswd',
 	'database' => 'piarX4',
 	'dbdriver' => 'mysqli',
-	'dbprefix' => 'ospos_',
+	'dbprefix' => 'PiarX4_',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
